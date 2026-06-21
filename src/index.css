@@ -1,0 +1,66 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Playfair Display', 'Georgia', serif;
+  --font-sans: 'Source Sans 3', system-ui, sans-serif;
+
+  --color-canvas: #f4f1ea;
+  --color-ink: #1a2418;
+  --color-ink-muted: #4a5c42;
+  --color-line: #d8dfd0;
+  --color-forest: #3d6b2e;
+  --color-forest-deep: #2a4a1f;
+  --color-sage: #7d9471;
+  --color-earth: #8b6914;
+  --color-earth-deep: #6b5010;
+  --color-surface: #faf8f4;
+  --color-surface-warm: #ebe6da;
+
+  --spacing-section: clamp(3.5rem, 9vw, 8rem);
+  --spacing-section-top: clamp(1.25rem, 3vw, 2rem);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(4.25rem + env(safe-area-inset-top, 0px));
+  font-size: 106.25%;
+}
+
+@media (min-width: 640px) {
+  html {
+    font-size: 112.5%;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--color-ink);
+  background-color: var(--color-canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display {
+  font-feature-settings: 'liga' 1, 'kern' 1;
+  letter-spacing: -0.015em;
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--color-forest) 28%, transparent);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-forest-deep);
+  outline-offset: 3px;
+}
+
+section[id] {
+  scroll-margin-top: calc(4.25rem + env(safe-area-inset-top, 0px));
+}
